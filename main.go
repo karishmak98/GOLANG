@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import (
+	_ "PRACTICE/docs"
+
+	echoSwagger "github.com/swaggo/echo-swagger"
+
+	"github.com/labstack/echo/v4"
+)
 
 func main() {
-	var m string
-	fmt.Println("hjgjhgg")
-	fmt.Println("m", m)
+	e := echo.New()
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
+	e.Logger.Fatal(e.Start(":8000"))
 
 }
