@@ -1,6 +1,7 @@
 package main
 
 import (
+	"PRACTICE/db"
 	_ "PRACTICE/docs"
 
 	echoSwagger "github.com/swaggo/echo-swagger"
@@ -9,6 +10,7 @@ import (
 )
 
 func main() {
+	db.LoadEnv()
 	e := echo.New()
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 	e.Logger.Fatal(e.Start(":8000"))
