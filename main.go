@@ -10,7 +10,8 @@ import (
 )
 
 func main() {
-	db.LoadEnv()
+	db.CreateCon()
+	db.RedisCon()
 	e := echo.New()
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 	e.Logger.Fatal(e.Start(":8000"))
